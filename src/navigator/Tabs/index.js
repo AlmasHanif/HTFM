@@ -1,8 +1,7 @@
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { Image } from 'react-native';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Image } from "react-native";
 import { Images, Metrics, Colors, Fonts, AppStyles } from "../../theme";
 
 // Screens
@@ -13,13 +12,13 @@ import {
   Profile,
   Logout,
 } from "../../containers";
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator } from "@react-navigation/stack";
 
 //Screen names
 const homeName = "Home";
 const historyName = "History";
 const favouritesName = "Favourites";
-const profileName = "Profile"
+const profileName = "Profile";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -108,7 +107,6 @@ const ProfileStack = ({ navigation }) => (
 // );
 
 export default BottomTab = () => (
-
   <Tab.Navigator
     initialRouteName="DashBoardStack"
     backBehavior={"initialRoute"}
@@ -119,54 +117,63 @@ export default BottomTab = () => (
 
         if (rn === homeName) {
           iconName = focused ? Images.ic_home_active : Images.ic_home_in;
-
         } else if (rn === historyName) {
           iconName = focused ? Images.ic_history_active : Images.ic_history_in;
-
         } else if (rn === favouritesName) {
-          iconName = focused ? Images.ic_favorite_active : Images.ic_favorite_in;
+          iconName = focused
+            ? Images.ic_favorite_active
+            : Images.ic_favorite_in;
         } else if (rn === profileName) {
           iconName = focused ? Images.ic_user_active : Images.ic_user_in;
         }
 
         // You can return any component that you like here!
-        return <Image
-          resizeMode="contain"
-          source={iconName}
-          style={{
-            width: 24,
-            height: 20,
-          }}
-        />;
+        return (
+          <Image
+            resizeMode="contain"
+            source={iconName}
+            style={{
+              width: 24,
+              height: 20,
+            }}
+          />
+        );
       },
     })}
     tabBarOptions={{
-      activeTintColor:  "#3283E6",
-      inactiveTintColor: 'grey',
+      activeTintColor: "#3283E6",
+      inactiveTintColor: "grey",
       labelStyle: { paddingBottom: 10, fontSize: 10 },
-      style: { padding: 10, height: 60 }
-    }}>
-
-    <Tab.Screen name={homeName}  component={DashBoardStack}
-      options={{ 
+      style: { padding: 10, height: 60 },
+    }}
+  >
+    <Tab.Screen
+      name={homeName}
+      component={DashBoardStack}
+      options={{
         tabBarLabel: "Search",
-      }} />
-    <Tab.Screen name={historyName}  component={HistoryStack}
+      }}
+    />
+    <Tab.Screen
+      name={historyName}
+      component={HistoryStack}
       options={{
         tabBarLabel: "History",
-      }} />
-    <Tab.Screen name={favouritesName}  component={FavoritesStack}
+      }}
+    />
+    <Tab.Screen
+      name={favouritesName}
+      component={FavoritesStack}
       options={{
         tabBarLabel: "Favorites",
-      }} />
-    <Tab.Screen name={profileName} component={ProfileStack}
+      }}
+    />
+    <Tab.Screen
+      name={profileName}
+      component={ProfileStack}
       options={{
         tabBarLabel: "Profile",
-      }} />
-
-
+      }}
+    />
   </Tab.Navigator>
-
-)
-
-
+);

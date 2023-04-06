@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import {
   View,
@@ -8,7 +7,8 @@ import {
   Text,
   ImageBackground,
   Dimensions,
-  CheckBox
+  CheckBox,
+  Platform,
 } from "react-native";
 import { USER } from "../../actions/ActionTypes";
 import constant from "../../constants";
@@ -49,6 +49,9 @@ class Login extends Component {
   }
 
   componentDidMount() {
+    // if (Platform.OS === "ios") {
+    //   return;
+    // }
     GoogleSignin.configure({
       webClientId:
         "597446303335-r8afm4jbpktdaik77dajigucpl4pfo9m.apps.googleusercontent.com",
@@ -224,14 +227,15 @@ class Login extends Component {
                     <View>
                       <View style={styles.logoSec}>
                         <Image
-                          style={
-                            [isKeyboardVisible
+                          style={[
+                            isKeyboardVisible
                               ? {
-                                width: Metrics.heightRatio(150),
-                                height: Metrics.heightRatio(150),
-                              }
-                              : styles.imgSec, { width: 200, height: 180 }]
-                          }
+                                  width: Metrics.heightRatio(150),
+                                  height: Metrics.heightRatio(150),
+                                }
+                              : styles.imgSec,
+                            { width: 200, height: 180 },
+                          ]}
                           source={Images.loginLogo}
                           resizeMode="contain"
                         />
@@ -268,7 +272,6 @@ class Login extends Component {
                                   : Images.ic_pass
                               }
                             />
-
                           </FormHandler>
                           {/* <View style={styles.div}>
                             <View style={{ flexDirection: 'row' }}>
@@ -289,11 +292,19 @@ class Login extends Component {
                     <View style={styles.submitBtn}>
                       <View style={styles.txtSec}>
                         <TouchableOpacity
-                          onPress={() => this.cbOnRequestLogin(setLogin, setRole)} style={[styles.btnStyle,
-                          { width: Metrics.screenWidth - Metrics.xDoubleBaseMargin * 2 },]}>
-                          <Text style={styles.loginBtn}>
-                            LOGIN
-                          </Text>
+                          onPress={() =>
+                            this.cbOnRequestLogin(setLogin, setRole)
+                          }
+                          style={[
+                            styles.btnStyle,
+                            {
+                              width:
+                                Metrics.screenWidth -
+                                Metrics.xDoubleBaseMargin * 2,
+                            },
+                          ]}
+                        >
+                          <Text style={styles.loginBtn}>LOGIN</Text>
                         </TouchableOpacity>
                       </View>
                       <View style={styles.txtSec}>
@@ -302,10 +313,24 @@ class Login extends Component {
                       <View style={styles.txtSec}>
                         <TouchableOpacity
                           onPress={() => this.signInFacebook(setLogin, setRole)}
-                          style={[styles.fbButton,
-                          { width: Metrics.screenWidth - Metrics.xDoubleBaseMargin * 2 },]}>
-                          <Image source={Images.facebookLogo}
-                            style={{ width: 27, height: 27, marginVertical: 7, marginHorizontal: 12 }} />
+                          style={[
+                            styles.fbButton,
+                            {
+                              width:
+                                Metrics.screenWidth -
+                                Metrics.xDoubleBaseMargin * 2,
+                            },
+                          ]}
+                        >
+                          <Image
+                            source={Images.facebookLogo}
+                            style={{
+                              width: 27,
+                              height: 27,
+                              marginVertical: 7,
+                              marginHorizontal: 12,
+                            }}
+                          />
                           <Text style={styles.btnTxt}>
                             Sign in with facebook
                           </Text>
@@ -313,14 +338,28 @@ class Login extends Component {
                       </View>
                       <View style={styles.txtSec}>
                         <TouchableOpacity
-                          onPress={() => this.handleLoginGoogle(setLogin, setRole)}
-                          style={[styles.fbButton,
-                          { width: Metrics.screenWidth - Metrics.xDoubleBaseMargin * 2 },]}>
-                          <Image source={Images.googleLogo}
-                            style={{ width: 27, height: 27, marginVertical: 7, marginHorizontal: 12 }} />
-                          <Text style={styles.btnTxt}>
-                            Sign in with google
-                          </Text>
+                          onPress={() =>
+                            this.handleLoginGoogle(setLogin, setRole)
+                          }
+                          style={[
+                            styles.fbButton,
+                            {
+                              width:
+                                Metrics.screenWidth -
+                                Metrics.xDoubleBaseMargin * 2,
+                            },
+                          ]}
+                        >
+                          <Image
+                            source={Images.googleLogo}
+                            style={{
+                              width: 27,
+                              height: 27,
+                              marginVertical: 7,
+                              marginHorizontal: 12,
+                            }}
+                          />
+                          <Text style={styles.btnTxt}>Sign in with google</Text>
                         </TouchableOpacity>
                       </View>
                     </View>
@@ -329,7 +368,19 @@ class Login extends Component {
                         style={styles.btnTxt}
                         onPress={() => push("register")}
                       >
-                        <Text style={styles.text}>Don’t have an Account? <Text style={{ fontSize: 15, fontWeight: '700', textDecorationLine: 'underline' }}> Sign Up </Text></Text>
+                        <Text style={styles.text}>
+                          Don’t have an Account?{" "}
+                          <Text
+                            style={{
+                              fontSize: 15,
+                              fontWeight: "700",
+                              textDecorationLine: "underline",
+                            }}
+                          >
+                            {" "}
+                            Sign Up{" "}
+                          </Text>
+                        </Text>
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -344,5 +395,5 @@ class Login extends Component {
 }
 
 const actions = { request, generalUpdate };
-const mapStateToProps = ({ }) => ({});
+const mapStateToProps = ({}) => ({});
 export default connect(mapStateToProps, actions)(WithKeyboardListener(Login));

@@ -20,28 +20,36 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-  <key>CFBundleURLTypes</key>
-  <array>
-    <dict>
-    <key>CFBundleURLSchemes</key>
-    <array>
-      <string>fb2876802352419676</string>
-    </array>
-    </dict>
-  </array>
-  <key>FacebookAppID</key>
-  <string>2876802352419676</string>
-  <key>FacebookDisplayName</key>
-  <string>HardToFindMaps</string>
-  <key>LSApplicationQueriesSchemes</key>
-  <array>
-    <string>fbapi</string>
-    <string>fb-messenger-api</string>
-    <string>fbauth2</string>
-    <string>fbshareextension</string>
-  </array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb2876802352419676</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.597446303335-7p5mqb1ress6aagbtcqk94lu42v9a7vj</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>2876802352419676</string>
+	<key>FacebookDisplayName</key>
+	<string>HardToFindMaps</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -58,7 +66,15 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Hard To Find Maps want's access to your current location to show you nearby places and landmarks accurately on the map.</string>
+  <key>NSLocationAlwaysUsageDescription</key>
+  <string>Hard To Find Maps want's access to your current location to show you nearby places and landmarks accurately on the map.</string>
+  <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+  <string>Hard To Find Maps want's access to your current location to show you nearby places and landmarks accurately on the map.</string>
+  <key>NSPhotoLibraryUsageDescription</key>
+  <string>Hard To Find Maps want's to access your photos to change/update profile photos</string>
+  
+  
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lato-Black.ttf</string>

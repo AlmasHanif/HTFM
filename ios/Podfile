@@ -23,7 +23,7 @@ target 'HardToFindMaps' do
 # post_install do |installer|
 #   flipper_post_install(installer)
 # end
-use_flipper!({'Flipper' => '0.79.0'})
+# use_flipper!({'Flipper' => '0.79.0'})
 end
 
 

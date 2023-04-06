@@ -25,7 +25,6 @@ import {
   ReloadInstructions,
 } from "react-native/Libraries/NewAppScreen";
 
-
 class App extends React.Component {
   constructor() {
     super();
@@ -45,7 +44,7 @@ class App extends React.Component {
   }
   componentDidMount() {
     // Orientation.unlockAllOrientations();
- }
+  }
   // state = {
   //   screenWidth: null,
   //   screenHeight: null,
@@ -62,7 +61,7 @@ class App extends React.Component {
         <StatusBar barStyle="dark-content" />
         <SafeAreaView
           style={
-            this.state.orientation === 'portrait'
+            this.state.orientation === "portrait"
               ? styles.ContainerPotrait
               : styles.ContainerLandscape
           }

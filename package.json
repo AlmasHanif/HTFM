@@ -10,6 +10,7 @@
     "apk-hash": "cd android && keytool -keystore app/your_key_name.keystore -list -v",
     "debug-hash": "cd android && keytool -keystore app/debug.keystore -list -v",
     "ios": "react-native run-ios",
+    "pod": "cd ios && pod install && cd ..",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint ."
