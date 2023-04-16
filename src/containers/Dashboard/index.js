@@ -44,6 +44,7 @@ class Dashboard extends Component {
     };
   }
 
+  
   onSubmit = () => {
     const { user } = this.props;
     const { title } = this.state;
