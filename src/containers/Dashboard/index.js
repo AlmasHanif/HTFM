@@ -156,13 +156,7 @@ class Dashboard extends Component {
                   />*/}
               </View>
             </View>
-            {/* <View style={styles.submitBtn}>
-              <AppTextButton
-                title="Search"
-                style={styles.btnStyle}
-                onPress={() => this.onSubmit()}
-              />
-            </View> */}
+        
             <View style={styles.txtSec}>
               <TouchableOpacity
                 onPress={() => this.onSubmit()}
