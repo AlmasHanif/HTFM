@@ -44,16 +44,17 @@ class Dashboard extends Component {
     };
   }
 
-  
+
   onSubmit = () => {
     const { user } = this.props;
     const { title } = this.state;
 
     let val = this.textInput.getValue();
-    if(val == ""){
+    if (val == "") {
       alert("plz search at least 3 words")
-      
-    }else{
+
+
+    } else {
       let payload = {
         token: "U0FTQUlORk9URUNILUhBUkRUT0ZJTkRNQVBT",
         email: user && user[0] && user[0].Email,
@@ -61,7 +62,7 @@ class Dashboard extends Component {
         start: "0",
         limit: "40",
       };
-  
+
       this.props.request(
         constant.location,
         "post",
@@ -72,22 +73,15 @@ class Dashboard extends Component {
         this.onLoginError
       );
     }
-   
-    // this.setState({
-    //   title: ''
-    // });
+
   };
   onLoginSuccess = (success) => {
     console.log("success", success);
-    // if (condition) {
-      
-    // } else {
-      
-    // }
+ 
     push("locations", {
       locations: success.data,
     });
-    // console.log(this.state.title , "sdlvsldvlsdvm")
+   
   };
 
   onLoginError = (error) => {
@@ -98,7 +92,7 @@ class Dashboard extends Component {
 
   render() {
     const { user, isKeyboardVisible, keyboardHeight } = this.props;
-    
+
     return (
       <View
         style={{
@@ -115,7 +109,7 @@ class Dashboard extends Component {
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ flexGrow: 1 }}
-          
+
         >
           <View style={styles.contentSec}>
             <View style={styles.logoSec}>
@@ -127,17 +121,16 @@ class Dashboard extends Component {
                       // width:200,
                       // height: 200,
                     }
-                    : styles.imgSec, ]
+                    : styles.imgSec,]
                 }
                 resizeMode="contain"
                 source={Images.loginLogo}
               />
             </View>
             <View>
-              {/* <Text style={styles.welcomeText}>WELCOME</Text> */}
             </View>
             <View>
-              <View style={{marginTop: 0}}>
+              <View style={{ marginTop: 0 }}>
                 {/* <Text style={styles.labelText}> at least 3 words for searching</Text> */}
               </View>
               <View style={{ marginTop: 15, }}>
